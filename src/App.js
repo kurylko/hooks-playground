@@ -8,6 +8,19 @@ function App() {
         country: '',
     });
 
+    const [city, setCity] = useState('');
+    const [country, setCountry] = useState('');
+
+    const handleChangeCity1 = (event) =>  {
+        setCity(event.target.value);
+    }
+
+    const handleChangeOnlyCountry1 = (event) => {
+        setCountry(event.target.value);
+    }
+
+
+
     // as we are changing not the whole state, need to use spread operator: ...address
     function handleCityChange(event) {
         setAddress({...address, city: event.target.value});
@@ -54,19 +67,19 @@ function App() {
                 <input
                     type='text'
                     placeholder='Your city'
-                    value={address.city}
-                    onChange={handleCityChange}
+                    value={city}
+                    onChange={handleChangeCity1}
                 ></input>
             </div>
             <div>
                 <input
                     type='text'
                     placeholder='Your country'
-                    value={address.country}
-                    onChange={handleCountryChange}
+                    value={country}
+                    onChange={handleChangeOnlyCountry1}
                 ></input>
             </div>
-            <div>U live in {`${address.country}, ${address.country}`}</div>
+            <div>U live in {`${city}, ${country}`}</div>
         </div>
     );
 }
